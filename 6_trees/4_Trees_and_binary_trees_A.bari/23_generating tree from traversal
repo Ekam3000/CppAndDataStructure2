@@ -1,0 +1,2 @@
+// when we are finding 7 -->
+for preorder we prints the elements from root, left and right ... so element 7 will firstly to be find in left part of Inorder subtree formed.

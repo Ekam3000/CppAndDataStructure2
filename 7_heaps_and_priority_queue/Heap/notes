@@ -1,0 +1,75 @@
+heap is a complete binary tree
+ complete binary tree--> a binary tree is completely filled if every node, till the last level of height have both its left child and right child or the binary tree is completely filled if all the nodes have its  left child and right child upto (n-1) level {n is the height of heap}  and also in the last level of height{ the nth level } the last node of heap must have its left child
+
+max heap -> every node has its node value greater then or equal to all of its decendends
+min heap -> every node has its node value less then or equal to all of its decendends
+
+as it is a complete binary tree ,the height of the tree is logn .. the height of the tree does not increases unnecessarily unless every node is filled with its left child and right child.
+
+from the heap u can delete the largest element only(root element), so from a heap u can delete a highest preority element.
+ // now delete 40.
+      40
+    /   \
+   35    30
+  /  \  /  \
+ 15  10 25  5
+// place the very  last element of heap at the place of heap node..
+
+      5
+    /   \
+   35    30
+  /  \  /
+ 15  10 25
+
+ // comparing childrens of node(starting from root), and the one which is greater , change it with root node
+      5
+    /   \
+   35    30
+  /  \  /
+ 15  10 25
+ 
+      35
+    /    \
+    5    30
+  /  \  /
+ 15  10 25
+ // now compare childrens of new parent node formed i.e childrens of 5, and the one which is greater inchange it with root node
+      35
+    /    \
+   15    30
+  /  \  /
+ 5  10 25
+ // no there is no child of node 5 so stop here.
+
+
+
+
+heapify
+in normal heap creation , the node element data are compared with its root/parent node and if it is greater then its parent node value then the two values are interchanged
+
+in heapify , the  node value are compared with its child values, if one of the child value(L child or R child) is greater then its parent value then replace its value.
+       5
+    /     \
+   10      30
+  /  \   /    \
+ 20  35 40    15 
+ now see 30 will be compared with with childrens ( the children which is greter amomg them and also greater then parent ) , we see 40 is greater then its parent 30 and the other children 15
+ so interchange them.
+       5
+    /     \
+   10      40
+  /  \   /    \
+ 20  35 30    15 
+ // similarly, for rest of the all
+       5
+    /     \
+   35      40
+  /  \   /    \
+ 20  10 30    15 
+ 
+
+      40
+    /     \
+   35      30
+  /  \   /    \
+ 20  10 5     15 

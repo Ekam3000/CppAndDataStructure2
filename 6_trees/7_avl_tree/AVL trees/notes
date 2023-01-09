@@ -1,0 +1,25 @@
+balanced factor +ve and greater then 1 means it is left side imbalancd and balanced factor -ve and greater then 1 means it is right side imbalanced..
+the direction of rotation (LL,LR,RL,RR) is predicted by direction of insersion followed
+      40
+    /    \
+   20     50
+  /  \      \
+ 10   30     60
+ /   /  \
+5   25   36
+this is balanced BST 
+     insert : 27
+      40
+    /    \
+   20     50
+  /  \      \
+ 10   30     60
+ /   /  \
+5   25   36
+     \
+     27
+when we have insert 27 the direction followed for insersion is 40->20->30->25 which becomes the reason for imbalanced tree hence for rotation 40->20->30 elements are involved and LR rotation occured
+
+
+Deletion of node from AVL tree
+this is same as deletion of node from BST . but AVL Trees are height balanced trees . so if any node is becoming imbanced after deletion of a node from AVL , we perfored rotation for balancing it.

@@ -1,0 +1,1 @@
+// two pointers i and j ,while(i<j) , then swap condition

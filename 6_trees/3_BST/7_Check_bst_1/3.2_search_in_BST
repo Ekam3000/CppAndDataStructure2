@@ -1,0 +1,11 @@
+Suppose that we have numbers between 1 and 1,000 in a binary search tree and want to search for the number 364. Which of the following sequences could not be the sequence of nodes examined ?
+(A) 925, 221, 912, 245, 899, 259, 363, 364
+(B) 3, 400, 388, 220, 267, 383, 382, 279, 364
+(C) 926, 203, 912, 241, 913, 246, 364
+(D) 3, 253, 402, 399, 331, 345, 398, 364
+Answer: (C)
+Explanation: We have to find 364 in BST:
+In first option 925 is root node, our key is less then 925 so we go for left BST. Next node is 221 → 912 → 245 → 899 → 259 → 363 → 364 respectively.
+In second option 3 is root node, we go for right BST i.e. 400 → 388 → 220 → 267 → 383 → 382 → 279 → 364 respectively.
+In third option 926 is root node, we go for left BST i.e. 203 → 912 → 241 next key is 913 we cant go for 913 after 241 because we are already in left BST of 912 our key will be surely in left BST of 912. This option is incorrect.
+In fourth option 3 is root node, we go for right BST i.e. 253 → 402 → 399 → 331 → 345 → 398 → 364.
