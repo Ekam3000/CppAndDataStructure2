@@ -5,7 +5,6 @@ class Graph
 {
     // adj list
     unordered_map<string,list<pair<string,int>>> l;
-
     public:
     void addEdge(string x, string y, bool bidir, int wt)
     {
@@ -36,6 +35,9 @@ class Graph
 int main()
 {
     Graph g;
+    // since Strings(the alphabets) are not numbers so we cant use lists to insert 
+    // like l['A']={B,C..} since lists are indexed by numbers 
+    // so we will use hashmaps 
     g.addEdge("A","B",true,20);
     g.addEdge("B","D",true,40);
     g.addEdge("A","C",true, 10);
@@ -43,3 +45,7 @@ int main()
     g.addEdge("A","D",false, 50);
     g.printAdjList(); 
 }
+/*
+the result will not be in alphabetically order 
+as we have used unordered map which are bassed upon hashing
+*/

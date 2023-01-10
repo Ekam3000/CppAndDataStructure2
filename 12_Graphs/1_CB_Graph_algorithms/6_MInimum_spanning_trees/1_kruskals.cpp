@@ -69,7 +69,7 @@ public:
     int kruskal_mst()
     {
         // main logic = easy
-        // 1. sort all the edges based upo weight
+        // 1. sort all the edges based upon weight
         sort(edgelist.begin(), edgelist.end());
 
         // init a DSU
@@ -104,3 +104,19 @@ int main()
 
      cout<<g.kruskal_mst()<<endl;
 }
+/*
+    1---
+   1| 2 |2
+    2---3
+   2|   |3
+    4---
+    there is also an edge from 1 to 4 -> its weight is 2
+
+    edge from 2 to 3 has weight 2
+*/
+
+//weighted undirected graphs
+//spanning tree : connects all the vertices of the graph with each other
+// if there are V vertices then we have V-1 edges that states the entire graph forms a single component without forming a cycle
+// single connected component
+// so spanning tree is the subset of edges

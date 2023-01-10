@@ -20,6 +20,7 @@ public:
         l.push_back(make_pair(u, v));
     }
     // Find
+    // path compression is going to reduce the path length from child to parent eg 7->5 , 5->3 , 3->2 , 2->1 .. then we can directly say 7 ka parent 1
     int findSet(int i, int parent[])
     {
         // base case
@@ -29,7 +30,7 @@ public:
         }
         // this is the change we have done
         // path compression optimisation
-        return parent[i] = findSet(parent[i], parent);
+        return parent[i] = findSet(parent[i], parent); // here all 2,3,5,7 parent becomes 1 
     }
     // union
     void union_set(int x, int y, int parent[])
@@ -82,3 +83,4 @@ int main()
     g.addEdge(3, 0);
     cout << g.contains_cycle() << endl;
 }
+

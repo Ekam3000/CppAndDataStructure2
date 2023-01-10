@@ -69,3 +69,6 @@ int main()
    Graph g(6) ;
    
 }
+// when ingree of a node is zero 
+// all are added to the queue
+// when we extract node from queue and prints it , reduce all the neighbours infdegree by 1 and during that process if any node's indegre becomes zero put that node into the queue 

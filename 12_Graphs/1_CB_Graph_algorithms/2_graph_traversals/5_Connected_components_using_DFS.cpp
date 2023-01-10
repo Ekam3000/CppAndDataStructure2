@@ -64,3 +64,15 @@ g.addEdge(6,7);
 g.addEdge(8,8);
 g.dfs();
 }
+/*
+     4        8
+    /
+   0         5
+  / \         \    
+ 1   3         6
+  \ /         /
+   2         7
+*/
+// there are three connected components(8 is also a component) 
+// u can use DFS or BFS and see how many DFS or BFS calls u have made
+// so source will not be provided with the dfs function call .. app khud doge use source .. if the node is not visited  

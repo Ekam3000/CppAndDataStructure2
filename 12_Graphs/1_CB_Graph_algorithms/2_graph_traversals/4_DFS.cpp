@@ -1,6 +1,6 @@
 #include<bits/stdc++.h>
 using namespace std;
-
+// this will be also the general syntax if we have to perform any question by dfs traversal
 template< typename T>
 class Graph
 {
@@ -16,7 +16,7 @@ class Graph
     // Recursive function that will traverse the graph
     cout<<src<<" ";
     visited[src]=true;
-    // go to all nbr of that node that is not visited
+    // go to all nbr of that node that is not visited (but one by one)
     for(T nbr :l[src])
     {
         if(!visited[nbr])
@@ -43,9 +43,13 @@ int main()
 Graph<int> g;
 g.addEdge(0,1);
 g.addEdge(1,2);
-g.addEdge(2,3);
+g.addEdge(2,3); 
 g.addEdge(3,4);
 g.addEdge(4,5);
 g.addEdge(3,0);
 g.dfs(0);
 }
+// dfs a recursive process ->
+// from source we will do the deepest node then backtrack again to the source node.
+
+// the printing of the dfs path depends upon the order of input values given by u 

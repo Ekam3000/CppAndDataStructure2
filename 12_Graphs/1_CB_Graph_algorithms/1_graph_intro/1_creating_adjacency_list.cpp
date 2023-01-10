@@ -18,12 +18,12 @@ class Graph
     int V;
     // array  of list
     list<int> *l;
-
+  // we dont know the size so we created pointer .. dynamically allocation will be done later 
 public:
     Graph(int V)
     {
         this->V = V;
-        l = new list<int>[V];
+        l = new list<int>[V]; // means hame V number of  lists chahiye of the type int  
     }
     void addEdge(int x, int y) // the edges will be bidirectional 
     {

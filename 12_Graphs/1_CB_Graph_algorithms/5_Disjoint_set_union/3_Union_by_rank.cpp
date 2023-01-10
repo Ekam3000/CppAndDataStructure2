@@ -2,6 +2,8 @@
 // 1.  Path Compression Optimisation in DSU (find Fn)
 // 2. Union by Rank (Union Fn)
 
+
+// after doin these two optimizations the O() complexity becomes 1 of the DSU
 #include <bits/stdc++.h>
 using namespace std;
 // cycle detection in a undirected graph using DSU
@@ -19,6 +21,7 @@ public:
     {
         l.push_back(make_pair(u, v));
     }
+   
     // Find
     int findSet(int i, int parent[])
     {
@@ -32,38 +35,9 @@ public:
         return parent[i] = findSet(parent[i], parent);
     }
     // union
-    void union_set(int x, int y, int parent[], int rank[])
-    {
-        int s1 = findSet(x, parent);
-        int s2 = findSet(y, parent);
-
-        if (s1 != s2)
-        {
-          if(rank[s1]<rank[s2])
-          {
-            parent[s1] =s2;
-            rank[s2] += rank[s1];
-          }
-          else
-          {
-            parent[s2] =s1;
-            rank[s1] += rank[s2];
-          }
-        }
-    }
-    // Find
-    int findSet(int i, int parent[])
-    {
-        // base case
-        if (parent[i] == -1)
-        {
-            return i;
-        }
-        // this is the change we have done
-        // path compression optimisation
-        return parent[i] = findSet(parent[i], parent);
-    }
-    // union
+    // store the rank of each set -> rank means storing the number of nodes for each set 
+    // so whenever we want to join the two sets .. then always smaller set will be joined with the larger set
+    // this will reduce traversal 
     void union_set(int x, int y, int parent[], int rank[])
     {
         int s1 = findSet(x, parent);
@@ -106,8 +80,7 @@ public:
                 union_set(s1, s2, parent,rank);
             }
             else
-            {
-                
+            { 
                 return true;
             }
         }
@@ -129,7 +102,7 @@ public:
 };
 
 int main()
-{
+{ 
     Graph g(4);
     g.addEdge(0,1);
     g.addEdge(1, 2);

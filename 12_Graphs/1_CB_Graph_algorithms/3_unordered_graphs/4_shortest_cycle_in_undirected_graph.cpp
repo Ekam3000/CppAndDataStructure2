@@ -7,7 +7,7 @@ using namespace std;
 #define S second
 #define P pair<int, int>
 #define pb push_back
-
+// Homework problem
 const int N = 100005, M = 22;
 vector<int> gr[N];
 
@@ -63,4 +63,5 @@ void solve()
 }
 int main(int argc, char **argv)
 {
+
 }

@@ -4,7 +4,7 @@ using namespace std;
 class Graph
 {
     int V;
-    list<pair<int, int>> l;
+    list<pair<int, int>> l; // so we making edgelist
 
 public:
     Graph(int V)
@@ -15,7 +15,8 @@ public:
     {
         l.push_back(make_pair(u, v));
     }
-    // Find
+
+    // Find -> takes O(N) time complexity
     int findSet(int i, int parent[])
     {
         // base case
@@ -25,6 +26,8 @@ public:
         }
         return findSet(parent[i], parent);
     }
+
+
     // union
     void union_set(int x, int y, int parent[])
     {
@@ -33,7 +36,7 @@ public:
 
         if (s1 != s2)
         {
-            parent[s1] = s2;
+            parent[s1] = s2; // here parent of 0 becomes 1 , so 0 and 1 are combined 
         }
     }
     bool contains_cycle()
@@ -47,14 +50,14 @@ public:
         // iterate over the edge list
         for (auto edge : l)
         {
-            int i = edge.first;
-            int j = edge.second;
-            int s1 = findSet(i, parent);
-            int s2 = findSet(j, parent);
+            int i = edge.first; // at first it is 0
+            int j = edge.second; // at first it is 1
+            int s1 = findSet(i, parent); // parent of 0 is 0
+            int s2 = findSet(j, parent); // parent of 1 is 1 
 
-            if (s1 != s2)
+            if (s1 != s2) // the parent are diff 
             {
-                union_set(s1, s2, parent);
+                union_set(s1, s2, parent); // so combine 0 and 1 
             }
             else
             {
@@ -76,3 +79,11 @@ int main()
     g.addEdge(3, 0);
     cout << g.contains_cycle() << endl;
 }
+// disjoint sets means non operlapping no common element
+// disjoint sets supports two operations union and find
+// find function will tell us in which set a particular element is present
+// union -> merging two sets
+
+// union (1,2) -> we will first see the parent of 1 by find(1) function then we will see the parent of 2 by find(2) function.. if the parent are same then the graph is cyclic.
+
+// if the parent are different then then we set the parent of 2 as 1.. i.e merging them 
